@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Arc Denture Studio | Denture Care in Manchester</title>
+  <meta name="description" content="Arc Denture Studio provides personalised denture care in Manchester. Visit 31 Booth St or call 0161 399 2463 to discuss your denture needs.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Fonts (single request, display=swap) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary":            "#032521",
+            "primary-dk":         "#021a18",
+            "primary-container":  "#1B3B36",
+            "on-primary":         "#ffffff",
+            "on-primary-dim":     "#84a59e",
+            "secondary":          "#7A5C38",
+            "secondary-accent":   "#C5A059",
+            "secondary-warm":     "#fddaac",
+            "surface":            "#F9F9F7",
+            "surface-low":        "#F4F4F1",
+            "surface-mid":        "#EEEEEC",
+            "surface-high":       "#E2E3E0",
+            "on-surface":         "#1A1C1B",
+            "on-surface-muted":   "#414846"
+          },
+          fontFamily: {
+            "serif":  ["Playfair Display", "Georgia", "serif"],
+            "sans":   ["Plus Jakarta Sans", "system-ui", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* ─── Base resets ──────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; padding: 0; overscroll-behavior: none; font-family: "Plus Jakarta Sans", system-ui, sans-serif; }
+    body.menu-open { overflow: hidden; }
+
+    /* ─── Scrollbar ────────────────────────────────── */
+    ::-webkit-scrollbar { width: 7px; }
+    ::-webkit-scrollbar-track { background: #F9F9F7; }
+    ::-webkit-scrollbar-thumb { background: #1B3B36; border-radius: 4px; }
+
+    /* ─── Focus visible ────────────────────────────── */
+    :focus-visible { outline: 2px solid #7A5C38; outline-offset: 3px; border-radius: 4px; }
+
+    /* ─── Arc / arch motifs ────────────────────────── */
+    .arc-frame     { border-radius: 50% 50% 2rem 2rem / 35% 35% 2rem 2rem; }
+    .arc-frame-sm  { border-radius: 50% 50% 1.5rem 1.5rem / 25% 25% 1.5rem 1.5rem; }
+    .arc-ring {
+      position: absolute; inset: 0;
+      border: 2px solid rgba(122, 92, 56, 0.2);
+      border-radius: 50% 50% 2rem 2rem / 35% 35% 2rem 2rem;
+      transform: translate(12px, -12px);
+      z-index: 0;
+    }
+    .hero-glow {
+      background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(122, 92, 56, 0.08), transparent);
+    }
+
+    /* ─── Curve SVG divider ────────────────────────── */
+    .curve-low  { color: #F4F4F1; }
+    .curve-surf { color: #F9F9F7; }
+
+    /* ─── Typography helpers ───────────────────────── */
+    .font-serif { font-family: "Playfair Display", Georgia, serif; }
+
+    /* ─── Transitions ──────────────────────────────── */
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      background: #1B3B36; color: #ffffff;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 1rem 2rem; border-radius: 0.5rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #032521; }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      background: #F4F4F1; color: #032521;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 1rem 1.75rem; border-radius: 0.5rem; border: 1px solid #E2E3E0;
+      transition: background 0.2s;
+    }
+    .btn-ghost:hover { background: #E2E3E0; }
+
+    /* ─── FAQ accordion ────────────────────────────── */
+    .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding-bottom: 0; }
+    .faq-content.open { max-height: 300px; padding-bottom: 1.25rem; }
+    .faq-icon { transition: transform 0.3s ease; }
+    .faq-icon.open { transform: rotate(180deg); }
+
+    /* ─── Reduced motion ───────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ─── Material Symbols ─────────────────────────── */
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined'; font-weight: normal; font-style: normal;
+      font-size: 1.25rem; display: inline-block; line-height: 1;
+      text-transform: none; letter-spacing: normal; word-wrap: normal; white-space: nowrap;
+      direction: ltr; -webkit-font-smoothing: antialiased;
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+
+  <!-- ── LocalBusiness Structured Data (verified info only) ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Arc Denture Studio",
+    "telephone": "+441613992463",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "31 Booth St",
+      "addressLocality": "Manchester",
+      "postalCode": "M2 4AW",
+      "addressCountry": "GB"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 53.4791, "longitude": -2.2441 },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "08:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday",   "opens": "08:00", "closes": "17:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "16:00" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-surface text-on-surface antialiased">
+
+<!-- ═══════════════════════════════════════════════════
+     CENTRAL CONFIG  (edit here, not inline)
+═══════════════════════════════════════════════════ -->
+<script>
+  const ARC = {
+    name:    "Arc Denture Studio",
+    phone:   { display: "0161 399 2463", tel: "tel:+441613992463" },
+    address: { street: "31 Booth St", city: "Manchester", postcode: "M2 4AW", country: "United Kingdom" },
+    hours: [
+      { day: "Monday",    time: "08:00 – 19:00" },
+      { day: "Tuesday",   time: "08:00 – 19:00" },
+      { day: "Wednesday", time: "08:00 – 19:00" },
+      { day: "Thursday",  time: "08:00 – 19:00" },
+      { day: "Friday",    time: "08:00 – 17:00" },
+      { day: "Saturday",  time: "10:00 – 16:00" },
+      { day: "Sunday",    time: "Closed"         }
+    ],
+    email: null   /* not yet verified – do not display */
+  };
+</script>
+
+<!-- ═══════════════════════════════════════════════════
+     1. UTILITY / ANNOUNCEMENT BAR
+═══════════════════════════════════════════════════ -->
+<div class="bg-primary-container text-on-primary text-[11px] font-semibold tracking-wider py-2 px-4">
+  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+    <span class="flex items-center gap-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-secondary-accent"></span>
+      Arc Denture Studio &nbsp;·&nbsp; 31 Booth St, Manchester M2 4AW
+    </span>
+    <span class="hidden sm:flex items-center gap-6 uppercase">
+      <span>Mon – Thu: 08:00 – 19:00 &nbsp;|&nbsp; Fri: 08:00 – 17:00 &nbsp;|&nbsp; Sat: 10:00 – 16:00</span>
+      <a href="tel:+441613992463" class="flex items-center gap-1 hover:text-secondary-warm transition-colors">
+        <span class="material-symbols-outlined" style="font-size:14px">call</span>
+        0161 399 2463
+      </a>
+    </span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     2. STICKY NAVIGATION HEADER
+═══════════════════════════════════════════════════ -->
+<header id="site-header" class="sticky top-0 z-50 bg-surface/96 backdrop-blur-md border-b border-surface-high transition-shadow">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 h-[72px] flex items-center justify-between gap-4">
+
+    <!-- Logo -->
+    <a href="#top" class="shrink-0 group" aria-label="Arc Denture Studio – home">
+      <img src="assets/logo.png"
+           alt="Arc Denture Studio"
+           class="h-10 sm:h-11 w-auto object-contain group-hover:opacity-90 transition-opacity">
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden xl:flex items-center gap-0.5" aria-label="Primary navigation">
+      <a href="#top"       class="px-3 py-2 text-[11px] font-semibold uppercase tracking-widest text-on-surface hover:text-secondary transition-colors">Home</a>
+      <a href="#about"     class="px-3 py-2 text-[11px] font-semibold uppercase tracking-widest text-on-surface-muted hover:text-primary transition-colors">About</a>
+      <a href="#solutions" class="px-3 py-2 text-[11px] font-semibold uppercase tracking-widest text-on-surface-muted hover:text-primary transition-colors">Denture Solutions</a>
+      <a href="#repairs"   class="px-3 py-2 text-[11px] font-semibold uppercase tracking-widest text-on-surface-muted hover:text-primary transition-colors">Repairs &amp; Adjustments</a>
+      <a href="#approach"  class="px-3 py-2 text-[11px] font-semibold uppercase tracking-widest text-on-surface-muted hover:text-primary transition-colors">Our Approach</a>
+      <a href="#faqs"      class="px-3 py-2 text-[11px] font-semibold uppercase tracking-widest text-on-surface-muted hover:text-primary transition-colors">FAQs</a>
+      <a href="#location"  class="px-3 py-2 text-[11px] font-semibold uppercase tracking-widest text-on-surface-muted hover:text-primary transition-colors">Location</a>
+    </nav>
+
+    <!-- Desktop right actions -->
+    <div class="hidden sm:flex items-center gap-5">
+      <a href="tel:+441613992463" class="flex flex-col text-right group">
+        <span class="text-[9px] uppercase font-bold tracking-widest text-on-surface-muted">Call the Studio</span>
+        <span class="text-sm font-bold text-primary group-hover:text-secondary transition-colors">0161 399 2463</span>
+      </a>
+      <a href="#contact" class="btn-primary text-[11px] px-5 py-2.5">Book a Consultation</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button id="mobile-menu-btn"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            class="xl:hidden p-2 rounded-lg text-primary hover:bg-surface-low transition-colors">
+      <span class="material-symbols-outlined text-2xl" id="menu-icon" aria-hidden="true">menu</span>
+    </button>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div id="mobile-menu"
+       class="hidden xl:hidden border-t border-surface-high bg-surface px-6 py-5 shadow-xl"
+       aria-label="Mobile navigation">
+    <nav class="flex flex-col gap-1 mb-5">
+      <a href="#top"       class="py-2.5 border-b border-surface-mid text-sm font-semibold uppercase tracking-wider text-primary">Home</a>
+      <a href="#about"     class="py-2.5 border-b border-surface-mid text-sm font-semibold uppercase tracking-wider text-on-surface-muted hover:text-primary">About</a>
+      <a href="#solutions" class="py-2.5 border-b border-surface-mid text-sm font-semibold uppercase tracking-wider text-on-surface-muted hover:text-primary">Denture Solutions</a>
+      <a href="#repairs"   class="py-2.5 border-b border-surface-mid text-sm font-semibold uppercase tracking-wider text-on-surface-muted hover:text-primary">Repairs &amp; Adjustments</a>
+      <a href="#approach"  class="py-2.5 border-b border-surface-mid text-sm font-semibold uppercase tracking-wider text-on-surface-muted hover:text-primary">Our Approach</a>
+      <a href="#faqs"      class="py-2.5 border-b border-surface-mid text-sm font-semibold uppercase tracking-wider text-on-surface-muted hover:text-primary">FAQs</a>
+      <a href="#location"  class="py-2.5 text-sm font-semibold uppercase tracking-wider text-on-surface-muted hover:text-primary">Location</a>
+    </nav>
+    <div class="flex flex-col gap-3">
+      <a href="#contact"         class="btn-primary w-full py-3.5 justify-center">Book a Consultation</a>
+      <a href="tel:+441613992463" class="btn-ghost w-full py-3 justify-center">
+        <span class="material-symbols-outlined" style="font-size:16px" aria-hidden="true">call</span>
+        Call 0161 399 2463
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ═══════════════════════════════════════════════
+       3. HERO
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-surface py-14 lg:py-24 hero-glow" aria-label="Introduction">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+        <!-- Left: copy -->
+        <div class="lg:col-span-7 flex flex-col">
+
+          <!-- Eyebrow -->
+          <div class="inline-flex items-center gap-2.5 mb-7">
+            <span class="w-2 h-2 rounded-full bg-secondary-accent" aria-hidden="true"></span>
+            <span class="text-[11px] font-bold uppercase tracking-[0.15em] text-primary">Arc Denture Studio &nbsp;·&nbsp; Manchester</span>
+          </div>
+
+          <!-- H1 -->
+          <h1 class="font-serif text-[2.6rem] sm:text-5xl lg:text-[3.6rem] text-primary font-medium leading-[1.12] tracking-tight mb-6">
+            Comfort, Confidence,<br class="hidden sm:block">
+            <em class="not-italic text-secondary">Crafted Around You.</em>
+          </h1>
+
+          <!-- Standfirst -->
+          <p class="text-base sm:text-lg text-on-surface-muted max-w-lg leading-relaxed mb-9">
+            Personal denture care in the heart of Manchester, with a focus on fit, appearance and your individual needs.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row gap-4 mb-10">
+            <a href="#contact" class="btn-primary group">
+              Book a Consultation
+              <span class="material-symbols-outlined transition-transform group-hover:translate-x-0.5" style="font-size:16px" aria-hidden="true">arrow_forward</span>
+            </a>
+            <a href="tel:+441613992463" class="btn-ghost">
+              <span class="material-symbols-outlined text-secondary" style="font-size:16px" aria-hidden="true">call</span>
+              Call 0161 399 2463
+            </a>
+          </div>
+
+          <!-- Trust strip -->
+          <div class="flex flex-wrap gap-x-7 gap-y-2.5 text-[11px] font-bold uppercase tracking-widest text-on-surface-muted border-t border-surface-high pt-7">
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-secondary" style="font-size:15px" aria-hidden="true">location_on</span>Manchester Studio
+            </span>
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-secondary" style="font-size:15px" aria-hidden="true">person</span>Personalised Care
+            </span>
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-secondary" style="font-size:15px" aria-hidden="true">medical_services</span>Denture-Focused
+            </span>
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-secondary" style="font-size:15px" aria-hidden="true">phone_in_talk</span>Direct Contact
+            </span>
+          </div>
+
+        </div>
+
+        <!-- Right: arch image frame -->
+        <div class="lg:col-span-5 relative flex justify-center">
+          <div class="relative w-full max-w-sm">
+            <!-- background arc ring -->
+            <div class="arc-ring" aria-hidden="true"></div>
+            <!-- primary arch frame -->
+            <div class="arc-frame overflow-hidden shadow-2xl bg-surface-high relative aspect-[4/5] border-4 border-surface z-10">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg0-ZhLZcqQbO-dNsnX9XPnT5jlABA0dkwi09bA-gzsKeMSOLign_Io3-XKipelhYi4oqsOOvsC3Tf4eFFkG8Yecx38f274po63f8Unt881HH9tYyksn_ZZr8w7Sd4PITuNLuepyV1BvJIhut89s13xk8ttKsM75cmkH_JuohCIZoFZ4kzyXVfDIUN69QbMH52X5vyE9ZZ2EXe11UwUaLpEjsEJIlAK7-I1PNYRTExNkknPCYv22sQ"
+                   alt="Dental craftsmanship work at the Arc Denture Studio bench"
+                   class="w-full h-full object-cover"
+                   loading="eager">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent" aria-hidden="true"></div>
+              <div class="absolute bottom-6 left-6 right-6 text-on-primary">
+                <span class="block text-[10px] uppercase font-bold tracking-widest text-secondary-warm mb-1">Manchester Studio</span>
+                <p class="font-serif text-xl font-medium">Careful Craft &amp; Attention</p>
+              </div>
+            </div>
+            <!-- floating accent card -->
+            <div class="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-8 z-20 bg-surface rounded-2xl shadow-xl border border-surface-high p-2 w-36 sm:w-44">
+              <div class="overflow-hidden rounded-xl aspect-[4/3]">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx4nWvztNp6aneRXqS7rDkgVn77iTfIa4A38v-rlWzsZ5wGw69O2-0cR8RLL-kzyP5eVOX8BfK-MBSy2eZBZZz_RU2q_eAG6FNeUvjm8h0YabelNrQh5_DFfyDS5zBGeQla6A2u7yXylTcjDAxJA0zz8xSOxg6EogcQ7o6SE4FfAbPeNmV16nP943VmJKVl521vPn8jMdPnfFaJM8Cqt9w02LLdjya1xkyxeULK2iLwmOljFNpdSl1"
+                     alt="Natural smile"
+                     class="w-full h-full object-cover"
+                     loading="lazy">
+              </div>
+              <p class="text-[10px] font-bold uppercase tracking-wide text-primary text-center mt-2">Natural Aesthetics</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Curved divider -->
+  <div class="curve-low overflow-hidden leading-none" aria-hidden="true">
+    <svg class="w-full h-10 sm:h-14" viewBox="0 0 1200 80" preserveAspectRatio="none">
+      <path d="M0,0 C400,80 800,80 1200,0 L1200,80 L0,80 Z" fill="currentColor"/>
+    </svg>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       4. ABOUT SECTION
+  ═══════════════════════════════════════════════ -->
+  <section id="about" class="py-16 lg:py-24 bg-surface-low" aria-labelledby="about-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+        <!-- Image column -->
+        <div class="lg:col-span-5 order-2 lg:order-1">
+          <div class="relative">
+            <div class="arc-frame-sm overflow-hidden shadow-lg aspect-[4/5] border-4 border-surface bg-surface-high">
+              <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=75"
+                   alt="A clean denture studio workbench with tools arranged neatly"
+                   class="w-full h-full object-cover"
+                   loading="lazy">
+            </div>
+            <div class="absolute -bottom-5 -right-5 hidden sm:block bg-primary text-on-primary rounded-2xl shadow-xl px-6 py-5 max-w-[14rem]">
+              <span class="block text-[10px] font-bold uppercase tracking-wider text-secondary-warm mb-1">Our Focus</span>
+              <p class="text-xs leading-relaxed text-on-primary-dim">Dedicated to removable denture care, fit, and appearance.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copy column -->
+        <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-px bg-secondary" aria-hidden="true"></span>
+            <span class="text-[11px] font-bold uppercase tracking-[0.15em] text-secondary">About Arc Denture Studio</span>
+          </div>
+          <h2 id="about-heading" class="font-serif text-3xl sm:text-4xl text-primary font-medium tracking-tight leading-tight">
+            Denture Care With a Personal Approach
+          </h2>
+          <p class="text-base text-on-surface-muted leading-relaxed">
+            Arc Denture Studio provides personalised denture care from its Manchester studio. Whether you're considering dentures for the first time, looking to replace an existing set, or need help with a denture that no longer feels right, the studio provides a space to discuss your needs and available options.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+            <div class="bg-surface p-5 rounded-xl border border-surface-high space-y-2">
+              <span class="material-symbols-outlined text-secondary text-2xl" aria-hidden="true">home_pin</span>
+              <h3 class="font-bold text-sm text-primary">Manchester Studio</h3>
+              <p class="text-xs text-on-surface-muted leading-relaxed">Located at 31 Booth St in central Manchester.</p>
+            </div>
+            <div class="bg-surface p-5 rounded-xl border border-surface-high space-y-2">
+              <span class="material-symbols-outlined text-secondary text-2xl" aria-hidden="true">hearing</span>
+              <h3 class="font-bold text-sm text-primary">Personal Attention</h3>
+              <p class="text-xs text-on-surface-muted leading-relaxed">Time to discuss your options in a relaxed setting.</p>
+            </div>
+            <div class="bg-surface p-5 rounded-xl border border-surface-high space-y-2">
+              <span class="material-symbols-outlined text-secondary text-2xl" aria-hidden="true">auto_fix_high</span>
+              <h3 class="font-bold text-sm text-primary">Craft &amp; Detail</h3>
+              <p class="text-xs text-on-surface-muted leading-relaxed">Careful focus on appearance, comfort, and function.</p>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <a href="#contact" class="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-primary hover:text-secondary transition-colors">
+              Book your consultation
+              <span class="material-symbols-outlined" style="font-size:15px" aria-hidden="true">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Curved divider -->
+  <div class="curve-surf overflow-hidden leading-none" aria-hidden="true">
+    <svg class="w-full h-10 sm:h-14" viewBox="0 0 1200 80" preserveAspectRatio="none">
+      <path d="M0,0 C400,80 800,80 1200,0 L1200,80 L0,80 Z" fill="currentColor"/>
+    </svg>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       5. DENTURE SOLUTIONS
+  ═══════════════════════════════════════════════ -->
+  <section id="solutions" class="py-16 lg:py-24 bg-surface" aria-labelledby="solutions-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+
+      <div class="max-w-2xl mx-auto text-center mb-14 space-y-3">
+        <span class="text-[11px] font-bold uppercase tracking-[0.15em] text-secondary block">Denture Services</span>
+        <h2 id="solutions-heading" class="font-serif text-3xl sm:text-4xl text-primary font-medium tracking-tight">
+          Denture Solutions Designed Around Your Needs
+        </h2>
+        <p class="text-sm sm:text-base text-on-surface-muted">
+          Our range of services is here to support fit, appearance, and everyday comfort.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- Full Dentures -->
+        <article class="group bg-surface-low rounded-2xl p-7 border border-surface-high hover:border-secondary/40 hover:shadow-sm transition-all flex flex-col">
+          <div class="w-11 h-11 rounded-xl bg-surface flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors border border-surface-high mb-5" aria-hidden="true">
+            <span class="material-symbols-outlined">sentiment_satisfied</span>
+          </div>
+          <h3 class="font-serif text-xl text-primary font-semibold mb-2">Full Dentures</h3>
+          <p class="text-sm text-on-surface-muted leading-relaxed flex-1">
+            Complete upper or lower dentures designed to restore your smile with careful attention to natural appearance and comfortable daily wear.
+          </p>
+          <div class="mt-6 pt-5 border-t border-surface-high">
+            <a href="#contact" class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-widest text-primary group-hover:text-secondary transition-colors">
+              Discuss Full Dentures
+              <span class="material-symbols-outlined" style="font-size:16px" aria-hidden="true">arrow_forward</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Partial Dentures -->
+        <article class="group bg-surface-low rounded-2xl p-7 border border-surface-high hover:border-secondary/40 hover:shadow-sm transition-all flex flex-col">
+          <div class="w-11 h-11 rounded-xl bg-surface flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors border border-surface-high mb-5" aria-hidden="true">
+            <span class="material-symbols-outlined">view_agenda</span>
+          </div>
+          <h3 class="font-serif text-xl text-primary font-semibold mb-2">Partial Dentures</h3>
+          <p class="text-sm text-on-surface-muted leading-relaxed flex-1">
+            Custom partial denture options designed to fill gaps while blending neatly with your remaining natural teeth.
+          </p>
+          <div class="mt-6 pt-5 border-t border-surface-high">
+            <a href="#contact" class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-widest text-primary group-hover:text-secondary transition-colors">
+              Discuss Partial Dentures
+              <span class="material-symbols-outlined" style="font-size:16px" aria-hidden="true">arrow_forward</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Denture Repairs -->
+        <article class="group bg-surface-low rounded-2xl p-7 border border-surface-high hover:border-secondary/40 hover:shadow-sm transition-all flex flex-col">
+          <div class="w-11 h-11 rounded-xl bg-surface flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors border border-surface-high mb-5" aria-hidden="true">
+            <span class="material-symbols-outlined">build</span>
+          </div>
+          <h3 class="font-serif text-xl text-primary font-semibold mb-2">Denture Repairs</h3>
+          <p class="text-sm text-on-surface-muted leading-relaxed flex-1">
+            Repair services for cracked, chipped, or broken dentures. Contact us to discuss the right next step.
+          </p>
+          <div class="mt-6 pt-5 border-t border-surface-high">
+            <a href="#repairs" class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-widest text-primary group-hover:text-secondary transition-colors">
+              Discuss Denture Repairs
+              <span class="material-symbols-outlined" style="font-size:16px" aria-hidden="true">arrow_forward</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Adjustments & Relines -->
+        <article class="group bg-surface-low rounded-2xl p-7 border border-surface-high hover:border-secondary/40 hover:shadow-sm transition-all flex flex-col">
+          <div class="w-11 h-11 rounded-xl bg-surface flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors border border-surface-high mb-5" aria-hidden="true">
+            <span class="material-symbols-outlined">tune</span>
+          </div>
+          <h3 class="font-serif text-xl text-primary font-semibold mb-2">Adjustments &amp; Relines</h3>
+          <p class="text-sm text-on-surface-muted leading-relaxed flex-1">
+            Adjusting or relining an existing denture that feels loose, uncomfortable, or doesn't sit quite right.
+          </p>
+          <div class="mt-6 pt-5 border-t border-surface-high">
+            <a href="#contact" class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-widest text-primary group-hover:text-secondary transition-colors">
+              Discuss Relines &amp; Adjustments
+              <span class="material-symbols-outlined" style="font-size:16px" aria-hidden="true">arrow_forward</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Replacement Dentures -->
+        <article class="group bg-surface-low rounded-2xl p-7 border border-surface-high hover:border-secondary/40 hover:shadow-sm transition-all flex flex-col">
+          <div class="w-11 h-11 rounded-xl bg-surface flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors border border-surface-high mb-5" aria-hidden="true">
+            <span class="material-symbols-outlined">autorenew</span>
+          </div>
+          <h3 class="font-serif text-xl text-primary font-semibold mb-2">Replacement Dentures</h3>
+          <p class="text-sm text-on-surface-muted leading-relaxed flex-1">
+            Updating older or worn dentures to refresh your smile appearance and restore comfortable function.
+          </p>
+          <div class="mt-6 pt-5 border-t border-surface-high">
+            <a href="#contact" class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-widest text-primary group-hover:text-secondary transition-colors">
+              Discuss Replacement
+              <span class="material-symbols-outlined" style="font-size:16px" aria-hidden="true">arrow_forward</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Consultations -->
+        <article class="group bg-surface-low rounded-2xl p-7 border border-surface-high hover:border-secondary/40 hover:shadow-sm transition-all flex flex-col">
+          <div class="w-11 h-11 rounded-xl bg-surface flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors border border-surface-high mb-5" aria-hidden="true">
+            <span class="material-symbols-outlined">forum</span>
+          </div>
+          <h3 class="font-serif text-xl text-primary font-semibold mb-2">Denture Consultations</h3>
+          <p class="text-sm text-on-surface-muted leading-relaxed flex-1">
+            An unhurried consultation to talk through your denture concerns and understand the options available to you.
+          </p>
+          <div class="mt-6 pt-5 border-t border-surface-high">
+            <a href="#contact" class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-widest text-primary group-hover:text-secondary transition-colors">
+              Book a Consultation
+              <span class="material-symbols-outlined" style="font-size:16px" aria-hidden="true">arrow_forward</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       6. DENTURE REPAIR CTA BANNER
+  ═══════════════════════════════════════════════ -->
+  <section id="repairs" class="py-12 lg:py-16 bg-surface" aria-labelledby="repairs-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="bg-primary rounded-3xl px-8 sm:px-12 lg:px-16 py-12 lg:py-16 relative overflow-hidden shadow-xl">
+        <!-- decorative arc shape -->
+        <div class="absolute -right-24 -top-24 w-64 h-64 rounded-full border border-secondary-warm/10" aria-hidden="true"></div>
+        <div class="absolute -right-10 -bottom-10 w-80 h-80 rounded-full bg-secondary-accent/5" aria-hidden="true"></div>
+
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-8 space-y-4">
+            <div class="inline-flex items-center gap-2 rounded-full bg-primary-container text-on-primary-dim text-[11px] font-bold uppercase tracking-widest px-3 py-1">
+              <span class="material-symbols-outlined" style="font-size:13px" aria-hidden="true">build_circle</span>
+              Repairs &amp; Adjustments
+            </div>
+            <h2 id="repairs-heading" class="font-serif text-3xl sm:text-4xl text-on-primary font-medium tracking-tight leading-tight">
+              Need Help With a Damaged Denture?
+            </h2>
+            <p class="text-base text-on-primary-dim max-w-xl leading-relaxed">
+              If your denture has cracked, broken, become uncomfortable or needs an adjustment, contact Arc Denture Studio to discuss the next step.
+            </p>
+          </div>
+          <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-4">
+            <a href="tel:+441613992463" class="flex-1 lg:flex-none inline-flex items-center justify-center gap-2 bg-secondary-warm text-on-surface text-[11px] font-bold uppercase tracking-widest px-6 py-4 rounded-xl hover:bg-secondary-accent hover:text-on-primary transition-all shadow-md">
+              <span class="material-symbols-outlined text-lg" aria-hidden="true">call</span>
+              Call 0161 399 2463
+            </a>
+            <a href="#contact" class="flex-1 lg:flex-none inline-flex items-center justify-center gap-2 bg-primary-container text-on-primary text-[11px] font-bold uppercase tracking-widest px-6 py-4 rounded-xl hover:bg-surface-low hover:text-primary transition-colors border border-on-primary-dim/20">
+              Book a Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curved divider -->
+  <div class="curve-low overflow-hidden leading-none" aria-hidden="true">
+    <svg class="w-full h-10 sm:h-14" viewBox="0 0 1200 80" preserveAspectRatio="none">
+      <path d="M0,0 C400,80 800,80 1200,0 L1200,80 L0,80 Z" fill="currentColor"/>
+    </svg>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       7. OUR APPROACH / HOW IT WORKS
+  ═══════════════════════════════════════════════ -->
+  <section id="approach" class="py-16 lg:py-24 bg-surface-low" aria-labelledby="approach-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+
+      <div class="max-w-2xl mb-14 space-y-3">
+        <span class="text-[11px] font-bold uppercase tracking-[0.15em] text-secondary block">Our Approach</span>
+        <h2 id="approach-heading" class="font-serif text-3xl sm:text-4xl text-primary font-medium tracking-tight">
+          Your Denture Journey
+        </h2>
+        <p class="text-base text-on-surface-muted">
+          A simple, transparent process designed to give you clarity and confidence at every step.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <div class="bg-surface rounded-2xl p-7 border border-surface-high flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-start justify-between">
+              <span class="font-serif text-4xl font-light text-secondary" aria-hidden="true">01</span>
+              <div class="w-9 h-9 rounded-full bg-surface-low flex items-center justify-center text-primary border border-surface-high" aria-hidden="true">
+                <span class="material-symbols-outlined" style="font-size:16px">chat</span>
+              </div>
+            </div>
+            <h3 class="font-serif text-xl text-primary font-semibold">Talk to Us</h3>
+            <p class="text-sm text-on-surface-muted leading-relaxed">Tell us what you're looking for or what isn't working with your current denture.</p>
+          </div>
+          <span class="text-[11px] font-bold uppercase tracking-widest text-secondary">Initial Contact</span>
+        </div>
+
+        <div class="bg-surface rounded-2xl p-7 border border-surface-high flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-start justify-between">
+              <span class="font-serif text-4xl font-light text-secondary" aria-hidden="true">02</span>
+              <div class="w-9 h-9 rounded-full bg-surface-low flex items-center justify-center text-primary border border-surface-high" aria-hidden="true">
+                <span class="material-symbols-outlined" style="font-size:16px">assignment</span>
+              </div>
+            </div>
+            <h3 class="font-serif text-xl text-primary font-semibold">Discuss Your Options</h3>
+            <p class="text-sm text-on-surface-muted leading-relaxed">Your needs can be discussed during a consultation so you can understand the available options.</p>
+          </div>
+          <span class="text-[11px] font-bold uppercase tracking-widest text-secondary">Consultation &amp; Review</span>
+        </div>
+
+        <div class="bg-surface rounded-2xl p-7 border border-surface-high flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-start justify-between">
+              <span class="font-serif text-4xl font-light text-secondary" aria-hidden="true">03</span>
+              <div class="w-9 h-9 rounded-full bg-surface-low flex items-center justify-center text-primary border border-surface-high" aria-hidden="true">
+                <span class="material-symbols-outlined" style="font-size:16px">checklist</span>
+              </div>
+            </div>
+            <h3 class="font-serif text-xl text-primary font-semibold">Plan Your Care</h3>
+            <p class="text-sm text-on-surface-muted leading-relaxed">Once the appropriate option has been agreed, the next steps can be explained clearly.</p>
+          </div>
+          <span class="text-[11px] font-bold uppercase tracking-widest text-secondary">Personalised Plan</span>
+        </div>
+
+        <div class="bg-surface rounded-2xl p-7 border border-surface-high flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-start justify-between">
+              <span class="font-serif text-4xl font-light text-secondary" aria-hidden="true">04</span>
+              <div class="w-9 h-9 rounded-full bg-surface-low flex items-center justify-center text-primary border border-surface-high" aria-hidden="true">
+                <span class="material-symbols-outlined" style="font-size:16px">support_agent</span>
+              </div>
+            </div>
+            <h3 class="font-serif text-xl text-primary font-semibold">Ongoing Support</h3>
+            <p class="text-sm text-on-surface-muted leading-relaxed">Contact the studio if you have questions or need further help with your denture.</p>
+          </div>
+          <span class="text-[11px] font-bold uppercase tracking-widest text-secondary">Continued Care</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Curved divider -->
+  <div class="curve-surf overflow-hidden leading-none" aria-hidden="true">
+    <svg class="w-full h-10 sm:h-14" viewBox="0 0 1200 80" preserveAspectRatio="none">
+      <path d="M0,0 C400,80 800,80 1200,0 L1200,80 L0,80 Z" fill="currentColor"/>
+    </svg>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       8. WHY ARC
+  ═══════════════════════════════════════════════ -->
+  <section class="py-16 lg:py-24 bg-surface" aria-labelledby="why-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+
+      <div class="max-w-2xl mb-14 space-y-3">
+        <span class="text-[11px] font-bold uppercase tracking-[0.15em] text-secondary block">Our Principles</span>
+        <h2 id="why-heading" class="font-serif text-3xl sm:text-4xl text-primary font-medium tracking-tight">
+          Why Choose Arc Denture Studio
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <div class="bg-surface-low p-7 rounded-2xl border border-surface-high space-y-4">
+          <div class="w-11 h-11 rounded-xl bg-surface text-primary flex items-center justify-center border border-surface-high" aria-hidden="true">
+            <span class="material-symbols-outlined">person_pin</span>
+          </div>
+          <h3 class="font-serif text-lg text-primary font-semibold">Personal Attention</h3>
+          <p class="text-sm text-on-surface-muted leading-relaxed">Time to discuss your needs and preferences in a calm, personal studio environment.</p>
+        </div>
+
+        <div class="bg-surface-low p-7 rounded-2xl border border-surface-high space-y-4">
+          <div class="w-11 h-11 rounded-xl bg-surface text-primary flex items-center justify-center border border-surface-high" aria-hidden="true">
+            <span class="material-symbols-outlined">handyman</span>
+          </div>
+          <h3 class="font-serif text-lg text-primary font-semibold">Craft &amp; Detail</h3>
+          <p class="text-sm text-on-surface-muted leading-relaxed">Careful attention to the appearance, fit, and feel of your denture.</p>
+        </div>
+
+        <div class="bg-surface-low p-7 rounded-2xl border border-surface-high space-y-4">
+          <div class="w-11 h-11 rounded-xl bg-surface text-primary flex items-center justify-center border border-surface-high" aria-hidden="true">
+            <span class="material-symbols-outlined">chat_bubble_outline</span>
+          </div>
+          <h3 class="font-serif text-lg text-primary font-semibold">Clear Communication</h3>
+          <p class="text-sm text-on-surface-muted leading-relaxed">Straightforward conversations about your options, without pressure or jargon.</p>
+        </div>
+
+        <div class="bg-surface-low p-7 rounded-2xl border border-surface-high space-y-4">
+          <div class="w-11 h-11 rounded-xl bg-surface text-primary flex items-center justify-center border border-surface-high" aria-hidden="true">
+            <span class="material-symbols-outlined">location_city</span>
+          </div>
+          <h3 class="font-serif text-lg text-primary font-semibold">Manchester Studio</h3>
+          <p class="text-sm text-on-surface-muted leading-relaxed">A convenient city-centre location at 31 Booth St, Manchester.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       9. CRAFT & DETAIL GALLERY
+  ═══════════════════════════════════════════════ -->
+  <section class="py-16 lg:py-20 bg-surface-low" aria-labelledby="gallery-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+
+      <div class="max-w-2xl mx-auto text-center mb-12 space-y-3">
+        <span class="text-[11px] font-bold uppercase tracking-[0.15em] text-secondary block">Studio Imagery</span>
+        <h2 id="gallery-heading" class="font-serif text-3xl sm:text-4xl text-primary font-medium tracking-tight">
+          Craft &amp; Detail in Every Step
+        </h2>
+        <p class="text-sm sm:text-base text-on-surface-muted">
+          A look into the studio atmosphere and commitment to individual care.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+        <div class="overflow-hidden rounded-2xl border border-surface-high bg-surface group">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=70"
+                 alt="Close-up of a neat dental studio workbench"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                 loading="lazy">
+          </div>
+          <div class="p-4 text-center">
+            <span class="text-xs font-semibold text-primary">Studio Workbench</span>
+          </div>
+        </div>
+
+        <div class="overflow-hidden rounded-2xl border border-surface-high bg-surface group">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=70"
+                 alt="Careful tooth arrangement in progress"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                 loading="lazy">
+          </div>
+          <div class="p-4 text-center">
+            <span class="text-xs font-semibold text-primary">Careful Arrangement</span>
+          </div>
+        </div>
+
+        <div class="overflow-hidden rounded-2xl border border-surface-high bg-surface group">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=70"
+                 alt="A calm and comfortable consultation environment"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                 loading="lazy">
+          </div>
+          <div class="p-4 text-center">
+            <span class="text-xs font-semibold text-primary">Consultation Environment</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Curved divider -->
+  <div class="curve-surf overflow-hidden leading-none" aria-hidden="true">
+    <svg class="w-full h-10 sm:h-14" viewBox="0 0 1200 80" preserveAspectRatio="none">
+      <path d="M0,0 C400,80 800,80 1200,0 L1200,80 L0,80 Z" fill="currentColor"/>
+    </svg>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       10. FAQS
+  ═══════════════════════════════════════════════ -->
+  <section id="faqs" class="py-16 lg:py-24 bg-surface" aria-labelledby="faqs-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+        <!-- Left -->
+        <div class="lg:col-span-4 space-y-4">
+          <span class="text-[11px] font-bold uppercase tracking-[0.15em] text-secondary block">Questions &amp; Answers</span>
+          <h2 id="faqs-heading" class="font-serif text-3xl sm:text-4xl text-primary font-medium tracking-tight">
+            Frequently Asked Questions
+          </h2>
+          <p class="text-sm text-on-surface-muted leading-relaxed">
+            Quick, clear answers to common questions about our studio and denture services.
+          </p>
+          <a href="tel:+441613992463" class="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-primary hover:text-secondary transition-colors pt-2">
+            <span class="material-symbols-outlined" style="font-size:15px" aria-hidden="true">call</span>
+            Call 0161 399 2463
+          </a>
+        </div>
+
+        <!-- Right: accordion -->
+        <div class="lg:col-span-8 space-y-3">
+
+          <!-- FAQ item template -->
+          <div class="faq-item bg-surface-low rounded-xl border border-surface-high overflow-hidden">
+            <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left gap-4"
+                    aria-expanded="false">
+              <span class="font-semibold text-primary text-base">What types of denture care can I discuss with Arc Denture Studio?</span>
+              <span class="faq-icon material-symbols-outlined text-secondary shrink-0" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="faq-content px-6 text-on-surface-muted text-sm leading-relaxed">
+              You can discuss full dentures, partial dentures, replacement dentures, denture relines, adjustments, and repairs. During your consultation, the available options suitable for your needs can be explained clearly.
+            </div>
+          </div>
+
+          <div class="faq-item bg-surface-low rounded-xl border border-surface-high overflow-hidden">
+            <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left gap-4"
+                    aria-expanded="false">
+              <span class="font-semibold text-primary text-base">Can I contact the studio about a damaged denture?</span>
+              <span class="faq-icon material-symbols-outlined text-secondary shrink-0" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="faq-content px-6 text-on-surface-muted text-sm leading-relaxed">
+              Yes. If your denture has cracked, broken, or become uncomfortable, call us directly on 0161 399 2463 to discuss repair or adjustment options.
+            </div>
+          </div>
+
+          <div class="faq-item bg-surface-low rounded-xl border border-surface-high overflow-hidden">
+            <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left gap-4"
+                    aria-expanded="false">
+              <span class="font-semibold text-primary text-base">Can I arrange a consultation?</span>
+              <span class="faq-icon material-symbols-outlined text-secondary shrink-0" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="faq-content px-6 text-on-surface-muted text-sm leading-relaxed">
+              Yes. Fill out our online enquiry form or call us directly on 0161 399 2463 and we will arrange a suitable time.
+            </div>
+          </div>
+
+          <div class="faq-item bg-surface-low rounded-xl border border-surface-high overflow-hidden">
+            <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left gap-4"
+                    aria-expanded="false">
+              <span class="font-semibold text-primary text-base">Where is Arc Denture Studio located?</span>
+              <span class="faq-icon material-symbols-outlined text-secondary shrink-0" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="faq-content px-6 text-on-surface-muted text-sm leading-relaxed">
+              Arc Denture Studio is at 31 Booth St, Manchester, M2 4AW, United Kingdom.
+            </div>
+          </div>
+
+          <div class="faq-item bg-surface-low rounded-xl border border-surface-high overflow-hidden">
+            <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left gap-4"
+                    aria-expanded="false">
+              <span class="font-semibold text-primary text-base">What are the studio opening hours?</span>
+              <span class="faq-icon material-symbols-outlined text-secondary shrink-0" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="faq-content px-6 text-on-surface-muted text-sm leading-relaxed">
+              Monday to Thursday: 08:00 – 19:00. Friday: 08:00 – 17:00. Saturday: 10:00 – 16:00. Closed Sunday.
+            </div>
+          </div>
+
+          <div class="faq-item bg-surface-low rounded-xl border border-surface-high overflow-hidden">
+            <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left gap-4"
+                    aria-expanded="false">
+              <span class="font-semibold text-primary text-base">How do I contact the studio?</span>
+              <span class="faq-icon material-symbols-outlined text-secondary shrink-0" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="faq-content px-6 text-on-surface-muted text-sm leading-relaxed">
+              Call us on 0161 399 2463 or use the enquiry form below. We will get back to you promptly.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curved divider -->
+  <div class="curve-low overflow-hidden leading-none" aria-hidden="true">
+    <svg class="w-full h-10 sm:h-14" viewBox="0 0 1200 80" preserveAspectRatio="none">
+      <path d="M0,0 C400,80 800,80 1200,0 L1200,80 L0,80 Z" fill="currentColor"/>
+    </svg>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       11. LOCATION & OPENING HOURS
+  ═══════════════════════════════════════════════ -->
+  <section id="location" class="py-16 lg:py-24 bg-surface-low" aria-labelledby="location-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+
+      <div class="max-w-2xl mb-12 space-y-3">
+        <span class="text-[11px] font-bold uppercase tracking-[0.15em] text-secondary block">Location &amp; Hours</span>
+        <h2 id="location-heading" class="font-serif text-3xl sm:text-4xl text-primary font-medium tracking-tight">
+          Visit Arc Denture Studio
+        </h2>
+        <p class="text-sm sm:text-base text-on-surface-muted">Conveniently located in Manchester city centre at 31 Booth St.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+        <!-- Details + hours -->
+        <div class="lg:col-span-5 bg-surface rounded-3xl p-8 border border-surface-high shadow-sm flex flex-col justify-between space-y-8">
+          <div class="space-y-6">
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-surface-low flex items-center justify-center text-secondary shrink-0 border border-surface-high" aria-hidden="true">
+                <span class="material-symbols-outlined" style="font-size:20px">location_on</span>
+              </div>
+              <div>
+                <strong class="text-[11px] font-bold uppercase tracking-wider text-primary block mb-1">Address</strong>
+                <address class="text-sm text-on-surface-muted leading-relaxed not-italic">
+                  Arc Denture Studio<br>
+                  31 Booth St<br>
+                  Manchester M2 4AW<br>
+                  United Kingdom
+                </address>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-surface-low flex items-center justify-center text-secondary shrink-0 border border-surface-high" aria-hidden="true">
+                <span class="material-symbols-outlined" style="font-size:20px">phone</span>
+              </div>
+              <div>
+                <strong class="text-[11px] font-bold uppercase tracking-wider text-primary block mb-1">Telephone</strong>
+                <a href="tel:+441613992463" class="text-sm font-bold text-primary hover:text-secondary transition-colors">0161 399 2463</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-surface-low flex items-center justify-center text-secondary shrink-0 border border-surface-high" aria-hidden="true">
+                <span class="material-symbols-outlined" style="font-size:20px">schedule</span>
+              </div>
+              <div class="w-full">
+                <strong class="text-[11px] font-bold uppercase tracking-wider text-primary block mb-3">Opening Hours</strong>
+                <dl class="space-y-1.5 text-xs text-on-surface-muted">
+                  <div class="flex justify-between border-b border-surface-high py-1"><dt>Monday</dt>    <dd class="font-semibold text-primary">08:00 – 19:00</dd></div>
+                  <div class="flex justify-between border-b border-surface-high py-1"><dt>Tuesday</dt>   <dd class="font-semibold text-primary">08:00 – 19:00</dd></div>
+                  <div class="flex justify-between border-b border-surface-high py-1"><dt>Wednesday</dt> <dd class="font-semibold text-primary">08:00 – 19:00</dd></div>
+                  <div class="flex justify-between border-b border-surface-high py-1"><dt>Thursday</dt>  <dd class="font-semibold text-primary">08:00 – 19:00</dd></div>
+                  <div class="flex justify-between border-b border-surface-high py-1"><dt>Friday</dt>    <dd class="font-semibold text-primary">08:00 – 17:00</dd></div>
+                  <div class="flex justify-between border-b border-surface-high py-1"><dt>Saturday</dt>  <dd class="font-semibold text-primary">10:00 – 16:00</dd></div>
+                  <div class="flex justify-between py-1 opacity-50"><dt>Sunday</dt><dd>Closed</dd></div>
+                </dl>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-surface-high">
+            <a href="https://www.google.com/maps/search/?api=1&query=31+Booth+St+Manchester+M2+4AW"
+               target="_blank" rel="noopener noreferrer"
+               class="flex-1 btn-primary py-3.5 px-4 justify-center text-[11px]">
+              <span class="material-symbols-outlined" style="font-size:15px" aria-hidden="true">directions</span>
+              Get Directions
+            </a>
+            <a href="tel:+441613992463"
+               class="flex-1 btn-ghost py-3.5 px-4 justify-center text-[11px]">
+              <span class="material-symbols-outlined" style="font-size:15px" aria-hidden="true">call</span>
+              Call the Studio
+            </a>
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div class="lg:col-span-7">
+          <div class="w-full rounded-3xl overflow-hidden border border-surface-high shadow-sm min-h-[380px] h-full">
+            <iframe
+              title="Arc Denture Studio location map – 31 Booth St, Manchester M2 4AW"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2374.32170349281!2d-2.24628842340578!3d53.47913506548777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb1c2c310ef0b%3A0x6b4dbf4d1e22295!2s31%20Booth%20St%2C%20Manchester%20M2%204AW!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
+              style="border:0; width:100%; height:100%; min-height:380px;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Curved divider -->
+  <div class="curve-surf overflow-hidden leading-none" aria-hidden="true">
+    <svg class="w-full h-10 sm:h-14" viewBox="0 0 1200 80" preserveAspectRatio="none">
+      <path d="M0,0 C400,80 800,80 1200,0 L1200,80 L0,80 Z" fill="currentColor"/>
+    </svg>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       12. CONTACT / CONSULTATION FORM
+  ═══════════════════════════════════════════════ -->
+  <section id="contact" class="py-16 lg:py-24 bg-surface" aria-labelledby="contact-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="max-w-2xl mx-auto bg-surface-low rounded-3xl p-8 sm:p-12 border border-surface-high shadow-md">
+
+        <div class="text-center mb-8 space-y-2">
+          <span class="text-[11px] font-bold uppercase tracking-[0.15em] text-secondary block">Get in Touch</span>
+          <h2 id="contact-heading" class="font-serif text-3xl sm:text-4xl text-primary font-medium tracking-tight">
+            Book a Consultation
+          </h2>
+          <p class="text-sm text-on-surface-muted">
+            Send us an enquiry below, or call us directly on
+            <a href="tel:+441613992463" class="font-bold text-primary hover:underline">0161 399 2463</a>.
+          </p>
+        </div>
+
+        <form id="consultation-form" class="space-y-5" novalidate>
+
+          <div>
+            <label for="full-name" class="block text-[11px] font-bold uppercase tracking-wider text-primary mb-2">
+              Full Name <span class="text-secondary" aria-label="required">*</span>
+            </label>
+            <input id="full-name" name="full-name" type="text" required autocomplete="name"
+                   placeholder="Enter your full name"
+                   class="w-full px-4 py-3.5 rounded-xl bg-surface text-on-surface border border-surface-high focus:border-secondary focus:outline-none transition-colors text-sm">
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="phone-number" class="block text-[11px] font-bold uppercase tracking-wider text-primary mb-2">
+                Phone Number <span class="text-secondary" aria-label="required">*</span>
+              </label>
+              <input id="phone-number" name="phone-number" type="tel" required autocomplete="tel"
+                     placeholder="e.g. 07700 900000"
+                     class="w-full px-4 py-3.5 rounded-xl bg-surface text-on-surface border border-surface-high focus:border-secondary focus:outline-none transition-colors text-sm">
+            </div>
+            <div>
+              <label for="email-address" class="block text-[11px] font-bold uppercase tracking-wider text-primary mb-2">
+                Email Address
+              </label>
+              <input id="email-address" name="email-address" type="email" autocomplete="email"
+                     placeholder="yourname@domain.co.uk"
+                     class="w-full px-4 py-3.5 rounded-xl bg-surface text-on-surface border border-surface-high focus:border-secondary focus:outline-none transition-colors text-sm">
+            </div>
+          </div>
+
+          <div>
+            <label for="service-type" class="block text-[11px] font-bold uppercase tracking-wider text-primary mb-2">
+              What can we help you with?
+            </label>
+            <select id="service-type" name="service-type"
+                    class="w-full px-4 py-3.5 rounded-xl bg-surface text-on-surface border border-surface-high focus:border-secondary focus:outline-none transition-colors text-sm cursor-pointer">
+              <option value="">Please select…</option>
+              <option value="general">General enquiry</option>
+              <option value="new-dentures">New dentures</option>
+              <option value="existing-dentures">Existing dentures</option>
+              <option value="repair">Denture repair</option>
+              <option value="reline">Adjustment / reline</option>
+              <option value="consultation">Consultation</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block text-[11px] font-bold uppercase tracking-wider text-primary mb-2">
+              Message
+            </label>
+            <textarea id="message" name="message" rows="4"
+                      placeholder="Any preferred appointment days or additional questions…"
+                      class="w-full px-4 py-3.5 rounded-xl bg-surface text-on-surface border border-surface-high focus:border-secondary focus:outline-none transition-colors text-sm resize-none"></textarea>
+          </div>
+
+          <p class="text-xs text-on-surface-muted italic">
+            Please avoid including sensitive medical information in this form.
+          </p>
+
+          <button type="submit"
+                  class="btn-primary w-full py-4 justify-center">
+            Send Enquiry
+            <span class="material-symbols-outlined" style="font-size:16px" aria-hidden="true">send</span>
+          </button>
+
+        </form>
+
+        <!-- Success state (hidden by default) -->
+        <div id="form-success" class="hidden mt-6 p-6 rounded-2xl bg-surface border border-secondary/30 text-center space-y-3" role="alert" aria-live="polite">
+          <span class="material-symbols-outlined text-4xl text-secondary" aria-hidden="true">check_circle</span>
+          <h3 class="font-serif text-xl text-primary font-semibold">Thank You</h3>
+          <p class="text-sm text-on-surface-muted">Your message has been received. We will be in touch shortly.</p>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-surface-high text-center">
+          <p class="text-xs text-on-surface-muted">
+            Prefer to speak directly?
+            <a href="tel:+441613992463" class="font-bold text-primary hover:text-secondary transition-colors underline underline-offset-4">Call 0161 399 2463</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       13. FINAL CTA BANNER
+  ═══════════════════════════════════════════════ -->
+  <section class="py-14 lg:py-20 bg-surface-low" aria-label="Call to action">
+    <div class="max-w-4xl mx-auto px-4 sm:px-8 text-center space-y-6">
+      <div class="flex items-center justify-center gap-3 mb-2">
+        <span class="flex-1 h-px bg-surface-high max-w-[5rem]" aria-hidden="true"></span>
+        <span class="text-[11px] font-bold uppercase tracking-[0.15em] text-secondary">Arc Denture Studio</span>
+        <span class="flex-1 h-px bg-surface-high max-w-[5rem]" aria-hidden="true"></span>
+      </div>
+      <h2 class="font-serif text-3xl sm:text-4xl text-primary font-medium tracking-tight">
+        Ready to Discuss Your Denture Needs?
+      </h2>
+      <p class="text-base text-on-surface-muted max-w-xl mx-auto leading-relaxed">
+        Contact Arc Denture Studio to arrange a consultation, or call the studio directly and we'll be happy to help.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contact" class="btn-primary">Book a Consultation</a>
+        <a href="tel:+441613992463" class="btn-ghost">
+          <span class="material-symbols-outlined text-secondary" style="font-size:16px" aria-hidden="true">call</span>
+          Call 0161 399 2463
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════
+     14. FOOTER
+═══════════════════════════════════════════════════ -->
+<footer class="bg-primary text-on-primary" role="contentinfo">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
+
+      <!-- Brand col -->
+      <div class="lg:col-span-4 space-y-5">
+        <img src="assets/logo.png"
+             alt="Arc Denture Studio"
+             class="h-12 w-auto object-contain bg-surface/90 px-3 py-2 rounded-xl">
+        <p class="text-xs text-on-primary-dim leading-relaxed max-w-xs">
+          Personalised denture care in Manchester, focused on fit, appearance, and individual comfort.
+        </p>
+        <address class="not-italic text-xs text-on-primary-dim space-y-0.5">
+          <p class="font-semibold text-on-primary">Arc Denture Studio</p>
+          <p>31 Booth St</p>
+          <p>Manchester M2 4AW</p>
+          <p>United Kingdom</p>
+          <p class="pt-2"><a href="tel:+441613992463" class="hover:text-on-primary transition-colors">0161 399 2463</a></p>
+        </address>
+      </div>
+
+      <!-- Hours col -->
+      <div class="lg:col-span-4 space-y-4">
+        <h3 class="text-[11px] font-bold uppercase tracking-[0.15em] text-secondary-warm">Opening Hours</h3>
+        <dl class="space-y-1.5 text-xs text-on-primary-dim">
+          <div class="flex justify-between max-w-xs border-b border-primary-container/50 pb-1">
+            <dt>Monday – Thursday</dt><dd class="font-medium text-on-primary">08:00 – 19:00</dd>
+          </div>
+          <div class="flex justify-between max-w-xs border-b border-primary-container/50 pb-1">
+            <dt>Friday</dt><dd class="font-medium text-on-primary">08:00 – 17:00</dd>
+          </div>
+          <div class="flex justify-between max-w-xs border-b border-primary-container/50 pb-1">
+            <dt>Saturday</dt><dd class="font-medium text-on-primary">10:00 – 16:00</dd>
+          </div>
+          <div class="flex justify-between max-w-xs opacity-50 pt-0.5">
+            <dt>Sunday</dt><dd>Closed</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Nav col -->
+      <div class="lg:col-span-4 space-y-4">
+        <h3 class="text-[11px] font-bold uppercase tracking-[0.15em] text-secondary-warm">Quick Links</h3>
+        <nav class="flex flex-col gap-2 text-xs text-on-primary-dim" aria-label="Footer navigation">
+          <a href="#top"       class="hover:text-on-primary transition-colors">Home</a>
+          <a href="#about"     class="hover:text-on-primary transition-colors">About Arc Denture Studio</a>
+          <a href="#solutions" class="hover:text-on-primary transition-colors">Denture Solutions</a>
+          <a href="#repairs"   class="hover:text-on-primary transition-colors">Repairs &amp; Adjustments</a>
+          <a href="#approach"  class="hover:text-on-primary transition-colors">Our Approach</a>
+          <a href="#faqs"      class="hover:text-on-primary transition-colors">FAQs</a>
+          <a href="#location"  class="hover:text-on-primary transition-colors">Location &amp; Hours</a>
+          <a href="#contact"   class="hover:text-on-primary transition-colors">Book a Consultation</a>
+        </nav>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-12 pt-8 border-t border-primary-container/50 flex flex-col sm:flex-row items-center justify-between text-xs text-on-primary-dim gap-4">
+      <p>© 2026 Arc Denture Studio. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="#top" class="hover:text-on-primary transition-colors">Privacy Policy</a>
+        <a href="#top" class="hover:text-on-primary transition-colors">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════
+     15. MOBILE STICKY ACTION BAR
+═══════════════════════════════════════════════════ -->
+<div class="fixed bottom-0 inset-x-0 z-40 xl:hidden bg-surface/97 backdrop-blur-md border-t border-surface-high py-2.5 px-4 shadow-[0_-4px_20px_rgba(3,37,33,0.10)]"
+     role="navigation" aria-label="Quick contact actions">
+  <div class="grid grid-cols-3 gap-2">
+    <a href="tel:+441613992463"
+       class="flex flex-col items-center justify-center py-2.5 rounded-lg bg-surface-low text-primary border border-surface-high hover:bg-surface-mid transition-colors">
+      <span class="material-symbols-outlined text-secondary" style="font-size:20px" aria-hidden="true">call</span>
+      <span class="text-[10px] font-bold uppercase tracking-wider mt-0.5">Call</span>
+    </a>
+    <a href="https://www.google.com/maps/search/?api=1&query=31+Booth+St+Manchester+M2+4AW"
+       target="_blank" rel="noopener noreferrer"
+       class="flex flex-col items-center justify-center py-2.5 rounded-lg bg-surface-low text-primary border border-surface-high hover:bg-surface-mid transition-colors">
+      <span class="material-symbols-outlined text-secondary" style="font-size:20px" aria-hidden="true">directions</span>
+      <span class="text-[10px] font-bold uppercase tracking-wider mt-0.5">Directions</span>
+    </a>
+    <a href="#contact"
+       class="flex flex-col items-center justify-center py-2.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary transition-colors shadow-sm">
+      <span class="material-symbols-outlined" style="font-size:20px" aria-hidden="true">calendar_month</span>
+      <span class="text-[10px] font-bold uppercase tracking-wider mt-0.5">Book</span>
+    </a>
+  </div>
+</div>
+
+<!-- Spacer so footer clears mobile bar -->
+<div class="h-16 xl:hidden" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════════════ -->
+<script>
+  // ─── Mobile menu toggle ───────────────────────────
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu    = document.getElementById('mobile-menu');
+  const menuIcon      = document.getElementById('menu-icon');
+
+  function openMenu() {
+    mobileMenu.classList.remove('hidden');
+    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    mobileMenuBtn.setAttribute('aria-label', 'Close navigation menu');
+    menuIcon.textContent = 'close';
+    document.body.classList.add('menu-open');
+  }
+  function closeMenu() {
+    mobileMenu.classList.add('hidden');
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    mobileMenuBtn.setAttribute('aria-label', 'Open navigation menu');
+    menuIcon.textContent = 'menu';
+    document.body.classList.remove('menu-open');
+  }
+
+  mobileMenuBtn.addEventListener('click', () =>
+    mobileMenu.classList.contains('hidden') ? openMenu() : closeMenu()
+  );
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  // ─── FAQ accordion ───────────────────────────────
+  document.querySelectorAll('.faq-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item    = trigger.closest('.faq-item');
+      const content = item.querySelector('.faq-content');
+      const icon    = item.querySelector('.faq-icon');
+      const isOpen  = content.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-content').forEach(c => c.classList.remove('open'));
+      document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
+      document.querySelectorAll('.faq-trigger').forEach(t => t.setAttribute('aria-expanded', 'false'));
+
+      if (!isOpen) {
+        content.classList.add('open');
+        icon.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // ─── Contact form handler ─────────────────────────
+  const contactForm   = document.getElementById('consultation-form');
+  const formSuccess   = document.getElementById('form-success');
+  contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+    contactForm.classList.add('hidden');
+    formSuccess.classList.remove('hidden');
+  });
+
+  // ─── Header shadow on scroll ─────────────────────
+  const header = document.getElementById('site-header');
+  const onScroll = () => header.classList.toggle('shadow-md', window.scrollY > 20);
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>
+
+</body>
+</html>
