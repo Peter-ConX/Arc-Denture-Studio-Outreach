@@ -127,6 +127,10 @@
     "@type": "LocalBusiness",
     "name": "Arc Denture Studio",
     "telephone": "+441613992463",
+    "email": "bookings@arcdenturestudio.co.uk",
+    "sameAs": [
+      "https://web.facebook.com/people/Arc-Denture-Studio/61594321486219/"
+    ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "31 Booth St",
@@ -163,7 +167,8 @@
       { day: "Saturday",  time: "10:00 – 16:00" },
       { day: "Sunday",    time: "Closed"         }
     ],
-    email: null   /* not yet verified – do not display */
+    email:    "bookings@arcdenturestudio.co.uk",
+    facebook: "https://web.facebook.com/people/Arc-Denture-Studio/61594321486219/"
   };
 </script>
 
@@ -945,6 +950,16 @@
 
             <div class="flex items-start gap-4">
               <div class="w-10 h-10 rounded-xl bg-surface-low flex items-center justify-center text-secondary shrink-0 border border-surface-high" aria-hidden="true">
+                <span class="material-symbols-outlined" style="font-size:20px">mail</span>
+              </div>
+              <div>
+                <strong class="text-[11px] font-bold uppercase tracking-wider text-primary block mb-1">Email Inquiries</strong>
+                <a href="mailto:bookings@arcdenturestudio.co.uk" class="text-sm font-semibold text-primary hover:text-secondary transition-colors">bookings@arcdenturestudio.co.uk</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-surface-low flex items-center justify-center text-secondary shrink-0 border border-surface-high" aria-hidden="true">
                 <span class="material-symbols-outlined" style="font-size:20px">schedule</span>
               </div>
               <div class="w-full">
@@ -1158,12 +1173,19 @@
         <p class="text-xs text-on-primary-dim leading-relaxed max-w-xs">
           Personalised denture care in Manchester, focused on fit, appearance, and individual comfort.
         </p>
-        <address class="not-italic text-xs text-on-primary-dim space-y-0.5">
+        <address class="not-italic text-xs text-on-primary-dim space-y-1">
           <p class="font-semibold text-on-primary">Arc Denture Studio</p>
           <p>31 Booth St</p>
           <p>Manchester M2 4AW</p>
           <p>United Kingdom</p>
           <p class="pt-2"><a href="tel:+441613992463" class="hover:text-on-primary transition-colors">0161 399 2463</a></p>
+          <p><a href="mailto:bookings@arcdenturestudio.co.uk" class="hover:text-on-primary transition-colors">bookings@arcdenturestudio.co.uk</a></p>
+          <p class="pt-2">
+            <a href="https://web.facebook.com/people/Arc-Denture-Studio/61594321486219/#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-secondary-warm hover:text-on-primary transition-colors font-semibold">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <span>Follow us on Facebook</span>
+            </a>
+          </p>
         </address>
       </div>
 
