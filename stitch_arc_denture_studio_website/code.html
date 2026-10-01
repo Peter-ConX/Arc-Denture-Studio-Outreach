@@ -1090,10 +1090,18 @@
         </form>
 
         <!-- Success state (hidden by default) -->
-        <div id="form-success" class="hidden mt-6 p-6 rounded-2xl bg-surface border border-secondary/30 text-center space-y-3" role="alert" aria-live="polite">
+        <div id="form-success" class="hidden mt-6 p-6 sm:p-8 rounded-2xl bg-surface border border-secondary/30 text-center space-y-4" role="alert" aria-live="polite">
           <span class="material-symbols-outlined text-4xl text-secondary" aria-hidden="true">check_circle</span>
-          <h3 class="font-serif text-xl text-primary font-semibold">Thank You</h3>
-          <p class="text-sm text-on-surface-muted">Your message has been received. We will be in touch shortly.</p>
+          <h3 class="font-serif text-xl text-primary font-semibold">Opening WhatsApp…</h3>
+          <p class="text-sm text-on-surface-muted max-w-md mx-auto leading-relaxed">
+            Your enquiry details have been prepared for WhatsApp (+44 161 399 2463). If WhatsApp did not open automatically, please click below:
+          </p>
+          <div class="pt-2">
+            <a id="wa-fallback-btn" href="https://wa.me/441613992463" target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center gap-2 py-3.5 px-6 text-[11px]">
+              <span>Continue to WhatsApp</span>
+              <span class="material-symbols-outlined" style="font-size:16px" aria-hidden="true">open_in_new</span>
+            </a>
+          </div>
         </div>
 
         <div class="mt-8 pt-6 border-t border-surface-high text-center">
@@ -1284,13 +1292,37 @@
     });
   });
 
-  // ─── Contact form handler ─────────────────────────
+  // ─── Contact form handler with WhatsApp (+441613992463) ─────────────────
   const contactForm   = document.getElementById('consultation-form');
   const formSuccess   = document.getElementById('form-success');
+  const waFallbackBtn = document.getElementById('wa-fallback-btn');
+
   contactForm.addEventListener('submit', e => {
     e.preventDefault();
+
+    const name          = document.getElementById('full-name').value.trim();
+    const phone         = document.getElementById('phone-number').value.trim();
+    const email         = document.getElementById('email-address').value.trim();
+    const serviceSelect = document.getElementById('service-type');
+    const service       = serviceSelect.options[serviceSelect.selectedIndex]?.text || '';
+    const message       = document.getElementById('message').value.trim();
+
+    let waMessage = `Hello Arc Denture Studio,\n\nI would like to enquire about denture care:\n\n• Name: ${name}\n• Phone: ${phone}`;
+    if (email) waMessage += `\n• Email: ${email}`;
+    if (service && service !== 'Please select…') waMessage += `\n• Service: ${service}`;
+    if (message) waMessage += `\n• Message: ${message}`;
+
+    const waUrl = `https://wa.me/441613992463?text=${encodeURIComponent(waMessage)}`;
+
+    if (waFallbackBtn) {
+      waFallbackBtn.href = waUrl;
+    }
+
     contactForm.classList.add('hidden');
     formSuccess.classList.remove('hidden');
+
+    // Open WhatsApp
+    window.open(waUrl, '_blank');
   });
 
   // ─── Header shadow on scroll ─────────────────────
